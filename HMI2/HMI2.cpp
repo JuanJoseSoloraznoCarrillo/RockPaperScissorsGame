@@ -346,7 +346,7 @@ void Prom(Mat& in)
         cv::line(in, Point(center.x - rad, center.y - rad), Point(center.x + rad, center.y + rad), cv::Scalar(0, 0, 255), 4);
         cv::line(in, Point(center.x + rad, center.y - rad), Point(center.x - rad, center.y + rad), cv::Scalar(0, 0, 255), 4);
         ROCK1++;
-        if (ROCK1 > 30)
+        if (ROCK1 > 15)
         {
             PAPER1 = 0;
             SCISSORS1 = 0;
@@ -364,7 +364,7 @@ void Prom(Mat& in)
         cv::line(in, Point(center.x - rad, center.y - rad), Point(center.x + rad, center.y + rad), cv::Scalar(0, 0, 255), 4);
         cv::line(in, Point(center.x + rad, center.y - rad), Point(center.x - rad, center.y + rad), cv::Scalar(0, 0, 255), 4);
         PAPER1++;
-        if (PAPER1 > 30)
+        if (PAPER1 > 15)
         {
             ROCK1 = 0;
             SCISSORS1 = 0;
@@ -382,7 +382,7 @@ void Prom(Mat& in)
         cv::line(in, Point(center.x - rad, center.y - rad), Point(center.x + rad, center.y + rad), cv::Scalar(0, 0, 255), 4);
         cv::line(in, Point(center.x + rad, center.y - rad), Point(center.x - rad, center.y + rad), cv::Scalar(0, 0, 255), 4);
         SCISSORS1++;
-        if (SCISSORS1 > 30)
+        if (SCISSORS1 > 15)
         {
             ROCK1 = 0;
             PAPER1 = 0;
@@ -430,7 +430,7 @@ void Prom2(Mat& in)
         cv::line(in, Point(center.x - rad, center.y - rad), Point(center.x + rad, center.y + rad), cv::Scalar(255, 0, 0), 4);
         cv::line(in, Point(center.x + rad, center.y - rad), Point(center.x - rad, center.y + rad), cv::Scalar(255, 0, 0), 4);
         ROCK2++;
-        if (ROCK2 > 30)
+        if (ROCK2 > 15)
         {
             PAPER2 = 0;
             SCISSORS2 = 0;
@@ -448,7 +448,7 @@ void Prom2(Mat& in)
         cv::line(in, Point(center.x - rad, center.y - rad), Point(center.x + rad, center.y + rad), cv::Scalar(255, 0, 0), 4);
         cv::line(in, Point(center.x + rad, center.y - rad), Point(center.x - rad, center.y + rad), cv::Scalar(255, 0, 0), 4);
         PAPER2++;
-        if (PAPER2 > 30)
+        if (PAPER2 > 15)
         {
             ROCK2 = 0;
             SCISSORS2 = 0;
@@ -466,7 +466,7 @@ void Prom2(Mat& in)
         cv::line(in, Point(center.x - rad, center.y - rad), Point(center.x + rad, center.y + rad), cv::Scalar(255, 0, 0), 4);
         cv::line(in, Point(center.x + rad, center.y - rad), Point(center.x - rad, center.y + rad), cv::Scalar(255, 0, 0), 4);
         SCISSORS2++;
-        if (SCISSORS2 > 30)
+        if (SCISSORS2 > 15)
         {
             PAPER2 = 0;
             ROCK2 = 0;
@@ -583,13 +583,9 @@ void Tied(Mat& in)
     cv::line(in, Point(center.x , center.y-100 ), Point(center.x , center.y+200), cv::Scalar(0, 0, 0), 4);
 }
 //linea amarilla para el ganador
-void DefWin(Mat& in, int w)
+void DefWin(Mat& in, int win)
 {
-    Point center(300, 300);
-    int rad = 30;
-    cv::line(in, Point(center.x+w, center.y - 500), Point(center.x+w, center.y + 200), cv::Scalar(0, 255, 255), 15);
-    //waitKey(3000);
-
+    cv::putText(in, "Winner", cv::Point(20+win, 100), 2, 2, cv::Scalar(0, 255, 0));
 }
 
 int main()
@@ -635,16 +631,16 @@ int main()
         if (winersCounter1 == 3 || winersCounter2 == 3)
         {
 
-            if (winersCounter1 == 3) { DefWin(frame2, 80); winer = 1; }
-            else { DefWin(frame2, -40); winer = 2; }
+            if (winersCounter1 == 3) { DefWin(frame2,400); winer = 1; }
+            else { DefWin(frame2, 0); winer = 2; }
             tiempoVis = 60;
             winersCounter1 = 0; winersCounter2 = 0;
 
         }
 
         if (tiempoVis > 0) {
-            if (winer == 1) { DefWin(frame2, 80); }
-            else { DefWin(frame2, -40); }
+            if (winer == 1) { DefWin(frame2,400); }
+            else { DefWin(frame2, 0); }
 
             tiempoVis--;
             if (tiempoVis < 2) {
@@ -653,7 +649,6 @@ int main()
             }
             
         }
-
         RPS(frame2);
         playersChoice(frame2);
         imshow(window_name, frame2);
@@ -661,7 +656,7 @@ int main()
         char key = (char)waitKey(5); //delay N millis, usually long enough to display and capture input
         if (key == 'q') { break; }
 
-        if (timeCount > 50) 
+        if (timeCount > 20) 
         { 
             choicePlayer1 = 0; choicePlayer2 = 0; flag = 1;
         }
