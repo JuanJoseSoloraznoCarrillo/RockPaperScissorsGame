@@ -578,9 +578,8 @@ void WinP2(Mat& in)
 }
 void Tied(Mat& in)
 {
-    Point center(300, 200);
-    int rad = 20;
-    cv::line(in, Point(center.x , center.y-100 ), Point(center.x , center.y+200), cv::Scalar(0, 0, 0), 4);
+    cv::putText(in, "tied", cv::Point(300, 300), 2, 2, cv::Scalar(0, 255, 255));
+
 }
 //linea amarilla para el ganador
 void DefWin(Mat& in, int win)
