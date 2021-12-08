@@ -24,6 +24,9 @@ int flag = 0;
 int winersCounter1 = 0;
 int winersCounter2 = 0;
 
+int tiempoVis = 0;
+int winer = 0;
+
 /*
 void MyFilter(Mat& in, Mat& out) 
 {
@@ -631,10 +634,24 @@ int main()
 
         if (winersCounter1 == 3 || winersCounter2 == 3)
         {
-            if (winersCounter1 == 3) { DefWin(frame2, 80); }
-            else { DefWin(frame2, -40); }
-            //waitKey(5000);
+
+            if (winersCounter1 == 3) { DefWin(frame2, 80); winer = 1; }
+            else { DefWin(frame2, -40); winer = 2; }
+            tiempoVis = 60;
             winersCounter1 = 0; winersCounter2 = 0;
+
+        }
+
+        if (tiempoVis > 0) {
+            if (winer == 1) { DefWin(frame2, 80); }
+            else { DefWin(frame2, -40); }
+
+            tiempoVis--;
+            if (tiempoVis < 2) {
+                tiempoVis = 0;
+                
+            }
+            
         }
 
         RPS(frame2);
