@@ -612,12 +612,72 @@ int main()
         if (choicePlayer1 == 2 && choicePlayer2 == 2) { Tied(frame2); }
         if (choicePlayer1 == 3 && choicePlayer2 == 3) { Tied(frame2); }
         
-        if (choicePlayer1 == 1 && choicePlayer2 == 2 && flag == 1) { winersCounter2++; flag = 0; } //Piedra vs Papel 
-        if (choicePlayer1 == 1 && choicePlayer2 == 3 && flag == 1) { winersCounter1++; flag = 0; } //Piedra vs Tijera 
-        if (choicePlayer1 == 2 && choicePlayer2 == 1 && flag == 1) { winersCounter1++; flag = 0; } //Papel vs Piedra  
-        if (choicePlayer1 == 2 && choicePlayer2 == 3 && flag == 1) { winersCounter2++; flag = 0; } //papel vs Tijera
-        if (choicePlayer1 == 3 && choicePlayer2 == 2 && flag == 1) { winersCounter1++; flag = 0; } //Tijera vs Papel
-        if (choicePlayer1 == 3 && choicePlayer2 == 1 && flag == 1) { winersCounter2++; flag = 0; } //Tijera vs Piedra
+        if (choicePlayer1 == 1 && choicePlayer2 == 2 && flag == 1) //Piedra vs Papel 
+        { 
+            winersCounter2++; 
+            flag = 0;
+            PAPER1 = 0;
+            SCISSORS1 = 0;
+            ROCK1 = 0;
+            PAPER2 = 0;
+            SCISSORS2 = 0;
+            ROCK2 = 0;
+        } 
+        if (choicePlayer1 == 1 && choicePlayer2 == 3 && flag == 1) 
+        { 
+            winersCounter1++;
+            flag = 0; 
+            PAPER1 = 0;
+            SCISSORS1 = 0;
+            ROCK1 = 0;
+            PAPER2 = 0;
+            SCISSORS2 = 0;
+            ROCK2 = 0;
+        }
+        if (choicePlayer1 == 2 && choicePlayer2 == 1 && flag == 1) //Papel vs Piedra  
+        { 
+            winersCounter1++; 
+            flag = 0; 
+            PAPER1 = 0;
+            SCISSORS1 = 0;
+            ROCK1 = 0;
+            PAPER2 = 0;
+            SCISSORS2 = 0;
+            ROCK2 = 0;
+        } 
+        if (choicePlayer1 == 2 && choicePlayer2 == 3 && flag == 1) //papel vs Tijera
+        { 
+            winersCounter2++; 
+            flag = 0; 
+            PAPER1 = 0;
+            SCISSORS1 = 0;
+            ROCK1 = 0;
+            PAPER2 = 0;
+            SCISSORS2 = 0;
+            ROCK2 = 0;
+        } 
+        if (choicePlayer1 == 3 && choicePlayer2 == 2 && flag == 1) //Tijera vs Papel
+        { 
+            winersCounter1++; 
+            flag = 0; 
+            PAPER1 = 0;
+            SCISSORS1 = 0;
+            ROCK1 = 0;
+            PAPER2 = 0;
+            SCISSORS2 = 0;
+            ROCK2 = 0;
+        } 
+        if (choicePlayer1 == 3 && choicePlayer2 == 1 && flag == 1) //Tijera vs Piedra
+        { 
+            winersCounter2++;
+            flag = 0; 
+            PAPER1 = 0;
+            SCISSORS1 = 0;
+            ROCK1 = 0;
+            PAPER2 = 0;
+            SCISSORS2 = 0;
+            ROCK2 = 0;
+        } 
         
         if (winersCounter1 == 1) { WinP1(frame2); }
         if (winersCounter1 == 2) { WinP1(frame2); }
