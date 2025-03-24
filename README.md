@@ -40,4 +40,4 @@ This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE
 
 ## Contact
 
-For any questions or inquiries, please contact Juan Jose Solorzano at [email@example.com](mailto:email@example.com).
+For any questions or inquiries, please contact Juan Jose Solorzano at [juanjose.solorzano.c@gmail.com](mailto:juanjose.solorzano.c@gmail.com).
